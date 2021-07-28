@@ -1,6 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { Container } from "./styles";
+import {
+  Container,
+  TopSide,
+  BotSide,
+  RepoIcon,
+  StarIcon,
+  ForkIcon,
+} from "./styles";
 
 interface IProps {
   username: string;
@@ -15,12 +23,39 @@ const RepoCard: React.FC<IProps> = ({
   username,
   reponame,
   description,
+  language,
   stars,
   forks,
 }) => {
+  const languageClass = language ? language.toLowerCase() : "other";
+
   return (
     <Container>
-      <h1>RepoCard</h1>
+      <TopSide>
+        <header>
+          <RepoIcon />
+          <Link to={`/${username}/${reponame}`}>{reponame}</Link>
+        </header>
+
+        <p>{description}</p>
+      </TopSide>
+
+      <BotSide>
+        <ul>
+          <li>
+            <div className={`language ${languageClass}`} />
+            <span>{language}</span>
+          </li>
+          <li>
+            <StarIcon />
+            <span>{stars}</span>
+          </li>
+          <li>
+            <ForkIcon />
+            <span>{forks}</span>
+          </li>
+        </ul>
+      </BotSide>
     </Container>
   );
 };
