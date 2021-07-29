@@ -16,7 +16,8 @@ const GlobalStyles = createGlobalStyle`
     --icon: #6a737d;
     --link: #0366d6;
     --border: #e1e4e8;
-    --ticker: rgba(209,213,218, .5);
+    --ticker: #2d3236;
+    --ticker-background: #e8eaec;
     
     --calendar-scale-0: #ebedf0;
     --calendar-scale-1: #9BE9A8;
