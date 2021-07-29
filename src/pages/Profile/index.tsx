@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import { ProfileData, RepoCard, RandomCalendar } from "../../components";
+
+import { APIUser, APIRepo } from "../../@types";
 
 import {
   Container,
@@ -13,12 +16,48 @@ import {
   RepoIcon,
 } from "./styles";
 
+interface Data {
+  user?: APIUser;
+  repos?: APIRepo[];
+  error?: string;
+}
+
 const Profile: React.FC = () => {
+  const { username = "joaovitorpessoa" } = useParams();
+  const [data, setData] = useState<Data>();
+
+  useEffect(() => {
+    Promise.all([
+      fetch(`https://api.github.com/users/${username}`),
+      fetch(`https://api.github.com/users/${username}/repos`),
+    ]).then(async (responses) => {
+      const [userResponse, reposResponse] = responses;
+
+      if (userResponse.status === 404) {
+        setData({ error: "User not found!" });
+        return;
+      }
+
+      const user = await userResponse.json();
+      const repos = await reposResponse.json();
+
+      setData({ user, repos });
+    });
+  }, [username]);
+
+  if (data?.error) {
+    return <h1>{data.error}</h1>;
+  }
+
+  if (!data?.user || !data?.repos) {
+    return <h1>Loading...</h1>;
+  }
+
   const TabContent = () => (
     <div className="content">
       <RepoIcon />
       <span className="label">Repositories</span>
-      <span className="number">6</span>
+      <span className="number">{data.user?.public_repos}</span>
     </div>
   );
 
@@ -78,6 +117,7 @@ const Profile: React.FC = () => {
           <CalendarHeading>
             Random calendar (do not represent actual data)
           </CalendarHeading>
+
           <RandomCalendar />
         </RightSide>
       </Main>
