@@ -21,6 +21,8 @@ Esse projeto tem como objetivo clonar a interface da página de perfil de usuár
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [React Calendar Heatmap](https://www.kevinqi.com/react-calendar-heatmap/)
 - [Date-fns](https://date-fns.org/)
+- [SWR](https://swr.vercel.app/)
+- [Apollo GraphQL](https://www.apollographql.com/)
 
 ### 💡 Resultado em 30/07/2021
 
