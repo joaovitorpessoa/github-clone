@@ -10,7 +10,7 @@
 
 ## 🔖 Sobre
 
-Esse projeto tem como objetivo clonar a interface da página de perfil de usuário do Github, consumindo dados reais da API oficial.
+Esse projeto tem como objetivo clonar a interface da página de perfil de usuário do Github, consumindo dados reais da API oficial (GraphQL) e utilizando estratégias para invalidação de cache.
 
 ## 🚀 Tecnologias utilizadas
 
