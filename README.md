@@ -38,10 +38,10 @@ Esse projeto tem como objetivo clonar a interface da página de perfil de usuár
     $ cd github-clone
 
     # Instalar dependências
-    $ yarn install
+    $ npm install
 
     # Iniciar projeto
-    $ yarn start
+    $ npm start
 ```
 
 ---
