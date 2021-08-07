@@ -24,7 +24,7 @@ Esse projeto tem como objetivo clonar a interface da página de perfil de usuár
 - [SWR](https://swr.vercel.app/)
 - [Apollo GraphQL](https://www.apollographql.com/)
 
-### 💡 Resultado em 30/07/2021
+## 💡 Resultado em 30/07/2021
 
 ![""](/docs/screen-recording.gif)
 
